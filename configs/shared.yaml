@@ -1,0 +1,6 @@
+# configs/shared.yaml – ThriftNAS shared retraining hyperparameters
+# Read by retrain.py and every future baseline script.
+# Edit ONLY this file when changing epoch count or default batch size.
+
+epochs: 50          # 50 epochs (revisit after timing one full epoch; see PROJECT_SPEC §5)
+batch_size: 96      # 96 (fall back to 64 if OOM)
