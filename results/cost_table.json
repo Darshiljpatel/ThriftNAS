@@ -1,0 +1,163 @@
+{
+  "metadata": {
+    "C": 32,
+    "input_size": [
+      1,
+      32,
+      16,
+      16
+    ],
+    "threads": 1,
+    "warmup": 20,
+    "runs": 200,
+    "note": "Lookup-table latency is an approximation of true end-to-end latency. The prediction excludes the stem, global average pooling, and classifier layers (those costs are captured in end-to-end measurements)."
+  },
+  "lat_max": 0.378400000045076,
+  "mac_max": 966656,
+  "entries": [
+    {
+      "op": "sep_conv_3x3",
+      "stride": 1,
+      "lat_median_ms": 0.2388499997323379,
+      "lat_std_ms": 0.06575222933310149,
+      "macs": 704512,
+      "c": 0.680011958973762,
+      "flagged": true
+    },
+    {
+      "op": "sep_conv_5x5",
+      "stride": 1,
+      "lat_median_ms": 0.2212999997937004,
+      "lat_std_ms": 0.0448403113027322,
+      "macs": 966656,
+      "c": 0.7924154330963775,
+      "flagged": true
+    },
+    {
+      "op": "dil_conv_3x3",
+      "stride": 1,
+      "lat_median_ms": 0.09710000085760839,
+      "lat_std_ms": 0.009925764496071427,
+      "macs": 352256,
+      "c": 0.31050677361227585,
+      "flagged": true
+    },
+    {
+      "op": "max_pool_3x3",
+      "stride": 1,
+      "lat_median_ms": 0.18914999964181334,
+      "lat_std_ms": 0.01894804729875902,
+      "macs": 0,
+      "c": 0.2499339318436592,
+      "flagged": true
+    },
+    {
+      "op": "avg_pool_3x3",
+      "stride": 1,
+      "lat_median_ms": 0.05069999861007091,
+      "lat_std_ms": 0.0023042809805113146,
+      "macs": 0,
+      "c": 0.06699259857826557,
+      "flagged": false
+    },
+    {
+      "op": "skip_connect",
+      "stride": 1,
+      "lat_median_ms": 0.0008000006346264854,
+      "lat_std_ms": 5.23067606633538e-05,
+      "macs": 0,
+      "c": 0.001057083290871019,
+      "flagged": false
+    },
+    {
+      "op": "eca_sep_conv_3x3",
+      "stride": 1,
+      "lat_median_ms": 0.2610499996080762,
+      "lat_std_ms": 0.039721529511767974,
+      "macs": 712800,
+      "c": 0.7136329407169746,
+      "flagged": true
+    },
+    {
+      "op": "zero",
+      "stride": 1,
+      "lat_median_ms": 0.004999999873689376,
+      "lat_std_ms": 0.003303497187656761,
+      "macs": 0,
+      "c": 0.0066067651600076145,
+      "flagged": true
+    },
+    {
+      "op": "sep_conv_3x3",
+      "stride": 2,
+      "lat_median_ms": 0.18679999993764795,
+      "lat_std_ms": 0.03688182528822796,
+      "macs": 176128,
+      "c": 0.3379304474461684,
+      "flagged": true
+    },
+    {
+      "op": "sep_conv_5x5",
+      "stride": 2,
+      "lat_median_ms": 0.18374999945081072,
+      "lat_std_ms": 0.040125481607171054,
+      "macs": 241664,
+      "c": 0.3677986250382161,
+      "flagged": true
+    },
+    {
+      "op": "dil_conv_3x3",
+      "stride": 2,
+      "lat_median_ms": 0.13760000001639128,
+      "lat_std_ms": 0.04459295646483067,
+      "macs": 88064,
+      "c": 0.22736902927580893,
+      "flagged": true
+    },
+    {
+      "op": "max_pool_3x3",
+      "stride": 2,
+      "lat_median_ms": 0.0746000005165115,
+      "lat_std_ms": 0.014859032451229241,
+      "macs": 0,
+      "c": 0.09857293935996954,
+      "flagged": true
+    },
+    {
+      "op": "avg_pool_3x3",
+      "stride": 2,
+      "lat_median_ms": 0.021699999706470408,
+      "lat_std_ms": 0.007061342606042501,
+      "macs": 0,
+      "c": 0.028673361130926858,
+      "flagged": true
+    },
+    {
+      "op": "skip_connect",
+      "stride": 2,
+      "lat_median_ms": 0.09154999952443177,
+      "lat_std_ms": 0.04932874274522785,
+      "macs": 69632,
+      "c": 0.1569868216598443,
+      "flagged": true
+    },
+    {
+      "op": "eca_sep_conv_3x3",
+      "stride": 2,
+      "lat_median_ms": 0.378400000045076,
+      "lat_std_ms": 0.22645505386207526,
+      "macs": 178272,
+      "c": 0.5922106726694916,
+      "flagged": true
+    },
+    {
+      "op": "zero",
+      "stride": 2,
+      "lat_median_ms": 0.014599998394260183,
+      "lat_std_ms": 0.00963998853998564,
+      "macs": 0,
+      "c": 0.019291752632823723,
+      "flagged": true
+    }
+  ]
+}
