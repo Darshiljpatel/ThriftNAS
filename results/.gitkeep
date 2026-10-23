@@ -1,0 +1,2 @@
+# results/ — CSV logs, JSON metadata, and saved genotypes written by search and retrain scripts.
+# Populated at runtime; not tracked in git (see .gitignore).
