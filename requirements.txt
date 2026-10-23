@@ -1,0 +1,18 @@
+# Core deep-learning stack
+torch>=2.1
+torchvision>=0.16
+
+# Numerics / config
+numpy>=1.24
+pyyaml>=6.0
+
+# FLOPs counting (fvcore convention for MACs)
+fvcore>=0.1.5
+
+# Profiling and analysis
+scipy>=1.10
+matplotlib>=3.7
+
+# Development / testing
+pytest>=8.0
+pytest-cov

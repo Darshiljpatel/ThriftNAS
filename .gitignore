@@ -1,5 +1,28 @@
-﻿.venv/
+# ----- datasets (never commit raw data) -----
+data/
+
+# ----- model weights & checkpoints (too large for git) -----
+*.pt
+*.pth
+results/**/checkpoint.pt
+results/**/model_weights.pt
+results/**/alpha_ep*.pt
+
+# ----- Python artefacts -----
 __pycache__/
 *.py[cod]
+*.egg-info/
+
+# ----- tool caches -----
 .pytest_cache/
 .ipynb_checkpoints/
+
+# ----- virtual environments -----
+.venv/
+
+# ----- OS / editor -----
+.DS_Store
+Thumbs.db
+
+# ----- uploaded test images (temp) -----
+test_animals.jpg
