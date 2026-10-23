@@ -1,0 +1,2 @@
+epoch,lr,ce_w,ce_a,eff,lam_eff,train_acc,val_acc,skip_count,epoch_time_s,peak_gpu_mb
+0,0.001,1.804105,1.80326,8.909149,0.0,33.133,36.5685,0,280.37,2157.4

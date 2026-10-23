@@ -1,0 +1,114 @@
+{
+  "metadata": {
+    "C": 32,
+    "input_size": [
+      1,
+      32,
+      16,
+      16
+    ],
+    "threads": 1,
+    "warmup": 20,
+    "runs": 200,
+    "note": "Lookup-table latency is an approximation of true end-to-end latency. The prediction excludes the stem, global average pooling, and classifier layers (those costs are captured in end-to-end measurements)."
+  },
+  "mac_max": 966656,
+  "entries": [
+    {
+      "op": "sep_conv_3x3",
+      "stride": 1,
+      "macs": 704512,
+      "c": 0.7288135593220338
+    },
+    {
+      "op": "sep_conv_5x5",
+      "stride": 1,
+      "macs": 966656,
+      "c": 1.0
+    },
+    {
+      "op": "dil_conv_3x3",
+      "stride": 1,
+      "macs": 352256,
+      "c": 0.3644067796610169
+    },
+    {
+      "op": "max_pool_3x3",
+      "stride": 1,
+      "macs": 0,
+      "c": 0.0
+    },
+    {
+      "op": "avg_pool_3x3",
+      "stride": 1,
+      "macs": 0,
+      "c": 0.0
+    },
+    {
+      "op": "skip_connect",
+      "stride": 1,
+      "macs": 0,
+      "c": 0.0
+    },
+    {
+      "op": "eca_sep_conv_3x3",
+      "stride": 1,
+      "macs": 712800,
+      "c": 0.7373874470338984
+    },
+    {
+      "op": "zero",
+      "stride": 1,
+      "macs": 0,
+      "c": 0.0
+    },
+    {
+      "op": "sep_conv_3x3",
+      "stride": 2,
+      "macs": 176128,
+      "c": 0.18220338983050846
+    },
+    {
+      "op": "sep_conv_5x5",
+      "stride": 2,
+      "macs": 241664,
+      "c": 0.25
+    },
+    {
+      "op": "dil_conv_3x3",
+      "stride": 2,
+      "macs": 88064,
+      "c": 0.09110169491525423
+    },
+    {
+      "op": "max_pool_3x3",
+      "stride": 2,
+      "macs": 0,
+      "c": 0.0
+    },
+    {
+      "op": "avg_pool_3x3",
+      "stride": 2,
+      "macs": 0,
+      "c": 0.0
+    },
+    {
+      "op": "skip_connect",
+      "stride": 2,
+      "macs": 69632,
+      "c": 0.07203389830508475
+    },
+    {
+      "op": "eca_sep_conv_3x3",
+      "stride": 2,
+      "macs": 178272,
+      "c": 0.18442134533898305
+    },
+    {
+      "op": "zero",
+      "stride": 2,
+      "macs": 0,
+      "c": 0.0
+    }
+  ]
+}
