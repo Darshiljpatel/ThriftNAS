@@ -1,5 +1,6 @@
 # ----- datasets (never commit raw data) -----
-data/
+data/*
+!data/demo_examples/
 
 # ----- model weights & checkpoints (too large for git) -----
 *.pt
@@ -17,6 +18,7 @@ __pycache__/
 .pytest_cache/
 .ipynb_checkpoints/
 
+
 # ----- virtual environments -----
 .venv/
 
@@ -26,3 +28,4 @@ Thumbs.db
 
 # ----- uploaded test images (temp) -----
 test_animals.jpg
+

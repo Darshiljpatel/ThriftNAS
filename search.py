@@ -20,6 +20,7 @@ from pathlib import Path
 import torch
 
 from thriftnas.data.cifar10 import get_search_loaders
+from thriftnas.models.genotypes import derive_genotype, save_genotype
 from thriftnas.models.search_net import SearchNetwork
 from thriftnas.ops.primitives import PRIMITIVES
 from thriftnas.trainers.search_trainer import SearchTrainer
@@ -142,6 +143,12 @@ def main(argv: list[str] | None = None) -> None:
         if torch.cuda.is_available():
             torch.cuda.empty_cache()
 
+    # ---- Derive and save final genotype -------------------------------------
+    geno = derive_genotype(model.alpha_normal, model.alpha_reduce)
+    geno_path = Path(args.out_dir) / "genotype.json"
+    save_genotype(geno, geno_path)
+    print("Genotype saved to {}".format(geno_path))
+    print("Final Derived Genotype:\n{}".format(geno))
     print("Search complete. Results in: {}".format(args.out_dir))
 
 

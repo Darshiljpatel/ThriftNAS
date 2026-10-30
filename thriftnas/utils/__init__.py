@@ -19,8 +19,23 @@ import numpy as np
 import torch
 import torch.nn as nn
 
-
-# ---------------------------------------------------------------------------
+from thriftnas.utils.metrics import (
+    LatencyComparison,
+    compare_latency,
+    count_macs,
+    count_params,
+    cpu_latency,
+    model_size_mb,
+    predicted_latency,
+)
+from thriftnas.utils.plots import (
+    pareto_front,
+    plot_alpha_evolution,
+    plot_e_alpha_over_epochs,
+    plot_lambda_ablation,
+    plot_pareto_front,
+    plot_skip_count_vs_lambda,
+)
 # Reproducibility
 # ---------------------------------------------------------------------------
 

@@ -1,0 +1,12 @@
+{
+  "model": "mobilenet_v2",
+  "parameters": 2236682,
+  "params_m": 2.2367,
+  "macs": 91276800,
+  "macs_m": 91.28,
+  "test_acc": 50.64,
+  "test_loss": 1.410541,
+  "epochs": 1,
+  "batch_size": 96,
+  "seed": 0
+}

@@ -1,0 +1,9 @@
+# ThriftNAS: Evaluation & Comparison Results
+
+> Evaluation metrics comparing ThriftNAS models against baselines (PROJECT_SPEC §7).
+
+| Model | Top-1 (%) | Params (M) | MACs (M) | Size (MB) | CPU latency (ms, mean +/- std) | Predicted latency (ms) | Prediction error (%) | Search GPU-hours |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| MobileNetV2 | 50.64 (1 seed) | 2.2367 | 91.28 | 8.77 | 9.30 +/- 2.54 (1 seed) | - | - | - |
+| ResNet-20 | 44.14 (1 seed) | 0.2725 | 41.22 | 1.09 | 2.76 +/- 0.18 (1 seed) | - | - | - |
+| ThriftNAS (lam=0, 1ep) | 52.33 (1 seed) | 1.7153 | 280.41 | 6.92 | 33.63 +/- 6.72 (1 seed) | 12.47 | 62.9 | - |

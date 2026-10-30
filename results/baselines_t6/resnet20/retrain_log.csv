@@ -1,0 +1,2 @@
+epoch,lr,train_loss,train_acc,drop_path,epoch_time_s,peak_gpu_mb
+0,0.0,1.643915,37.6282,0.0,35.97,97.4

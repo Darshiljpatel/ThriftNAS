@@ -1,0 +1,12 @@
+{
+  "model": "resnet20",
+  "parameters": 272474,
+  "params_m": 0.2725,
+  "macs": 41218688,
+  "macs_m": 41.22,
+  "test_acc": 44.14,
+  "test_loss": 1.69724,
+  "epochs": 1,
+  "batch_size": 96,
+  "seed": 0
+}
