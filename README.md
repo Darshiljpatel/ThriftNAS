@@ -139,6 +139,8 @@ PILOT RUN COMPARISON (Epoch 4 Metrics):
 
 ## 🚀 6. What Needs to Be Done (Next Steps)
 
+> 💡 **2-Person Execution Plan**: To run the remaining training in parallel across two laptops in ~2.5 hours instead of 6+ hours, see **[TWO_PERSON_IMPLEMENTATION_PLAN.md](TWO_PERSON_IMPLEMENTATION_PLAN.md)** for exact command tracks and git merge instructions for Darshil and Priyansh.
+
 1. **Step 14: Full Architecture Search (25 Epochs)**
    - Execute full 25-epoch search runs for $\lambda = 0.0$ (Vanilla DARTS baseline), $\lambda = 0.1$ (ThriftNAS), and optionally $\lambda = 0.01$.
    - Estimated search time: ~1.5 hours per run (~4.5 hours total).
