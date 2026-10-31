@@ -63,6 +63,7 @@ def get_available_model_names() -> list[str]:
         "ResNet-20",
         "MobileNetV2",
         "Vanilla DARTS (lam=0)",
+        "ThriftNAS (lam=0.01)",
         "ThriftNAS (lam=0.1)",
         "ThriftNAS (lam=1.0)",
     ]
@@ -80,6 +81,11 @@ def _resolve_checkpoint(model_name: str) -> Path | None:
         candidates = [
             Path("results/baselines_t6/mobilenet_v2/model_weights.pt"),
             Path("results/baselines/mobilenet_v2/model_weights.pt"),
+        ]
+    elif "lam=0.01" in name_lower or "lam0.01" in name_lower:
+        candidates = [
+            Path("results/retrain_lam0.01/model_weights.pt"),
+            Path("results/search_lam0.01/checkpoint.pt"),
         ]
     elif "lam=0.1" in name_lower or "lam0.1" in name_lower:
         candidates = [
@@ -142,7 +148,9 @@ def load_model(
         else:
             # ThriftNAS / DARTS model: find genotype
             genotype_path = Path("results/search_lam0/genotype.json")
-            if "0.1" in name_lower and Path("results/search_lam0.1/genotype.json").exists():
+            if ("0.01" in name_lower) and Path("results/search_lam0.01/genotype.json").exists():
+                genotype_path = Path("results/search_lam0.01/genotype.json")
+            elif "0.1" in name_lower and Path("results/search_lam0.1/genotype.json").exists():
                 genotype_path = Path("results/search_lam0.1/genotype.json")
             elif ("1.0" in name_lower or "lam=1" in name_lower) and Path("results/search_lam1.0/genotype.json").exists():
                 genotype_path = Path("results/search_lam1.0/genotype.json")

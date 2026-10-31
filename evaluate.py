@@ -71,7 +71,9 @@ def _normalize_model_name(name: str) -> str:
         return "MobileNetV2"
     if "retrain_t10" in name_lower:
         return "ThriftNAS (lam=0, 1ep)"
-    if "lam0.1" in name_lower:
+    if "lam0.01" in name_lower or "lam001" in name_lower:
+        return "ThriftNAS (lam=0.01)"
+    if "lam0.1" in name_lower or "lam01" in name_lower:
         return "ThriftNAS (lam=0.1)"
     if "lam1" in name_lower:
         return "ThriftNAS (lam=1.0)"
@@ -96,8 +98,10 @@ def _load_and_enrich_metrics(
     weights_file = folder / "model_weights.pt"
     genotype_file = folder / "genotype.json"
     if not genotype_file.exists():
-        # Check parent search folder
-        if (folder.parent / "genotype.json").exists():
+        candidate_search = folder.parent / folder.name.replace("retrain_", "search_") / "genotype.json"
+        if candidate_search.exists():
+            genotype_file = candidate_search
+        elif (folder.parent / "genotype.json").exists():
             genotype_file = folder.parent / "genotype.json"
         elif Path("results/search_lam0/genotype.json").exists() and "thriftnas" in model_display.lower():
             genotype_file = Path("results/search_lam0/genotype.json")
