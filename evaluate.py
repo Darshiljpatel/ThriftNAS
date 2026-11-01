@@ -65,6 +65,10 @@ def _find_final_metrics(results_dir: Path) -> list[Path]:
 def _normalize_model_name(name: str) -> str:
     """Normalize model naming for reports."""
     name_lower = name.lower().replace("-", "_")
+    if "baselines_t6" in name_lower and "resnet" in name_lower:
+        return "ResNet-20 (1ep)"
+    if "baselines_t6" in name_lower and "mobilenet" in name_lower:
+        return "MobileNetV2 (1ep)"
     if "resnet20" in name_lower:
         return "ResNet-20"
     if "mobilenet" in name_lower:
@@ -92,7 +96,10 @@ def _load_and_enrich_metrics(
         data: dict[str, Any] = json.load(fh)
 
     folder = json_path.parent
-    model_name = data.get("model") or folder.name
+    if "baselines_t6" in str(json_path):
+        model_name = f"baselines_t6_{folder.name}"
+    else:
+        model_name = data.get("model") or folder.name
     model_display = _normalize_model_name(model_name)
 
     weights_file = folder / "model_weights.pt"
