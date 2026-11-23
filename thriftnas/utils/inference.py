@@ -58,15 +58,21 @@ _MODEL_CACHE: dict[str, nn.Module] = {}
 # ---------------------------------------------------------------------------
 
 def get_available_model_names() -> list[str]:
-    """Return list of supported model display names."""
-    return [
+    """Return list of supported model display names that have trained checkpoints."""
+    all_models = [
         "ResNet-20",
         "MobileNetV2",
         "Vanilla DARTS (lam=0)",
         "ThriftNAS (lam=0.01)",
         "ThriftNAS (lam=0.1)",
-        "ThriftNAS (lam=1.0)",
     ]
+    # Filter to models that actually have an existing checkpoint on disk
+    available = []
+    for name in all_models:
+        ckpt = _resolve_checkpoint(name)
+        if ckpt and ckpt.exists():
+            available.append(name)
+    return available if available else all_models
 
 
 def _resolve_checkpoint(model_name: str) -> Path | None:
@@ -74,13 +80,15 @@ def _resolve_checkpoint(model_name: str) -> Path | None:
     name_lower = model_name.lower()
     if "resnet" in name_lower:
         candidates = [
-            Path("results/baselines_t6/resnet20/model_weights.pt"),
             Path("results/baselines/resnet20/model_weights.pt"),
+            Path("results/baselines_t6/resnet20/model_weights.pt"),
+            Path("results/baselines/resnet20/checkpoint.pt"),
         ]
     elif "mobilenet" in name_lower:
         candidates = [
-            Path("results/baselines_t6/mobilenet_v2/model_weights.pt"),
             Path("results/baselines/mobilenet_v2/model_weights.pt"),
+            Path("results/baselines_t6/mobilenet_v2/model_weights.pt"),
+            Path("results/baselines/mobilenet_v2/checkpoint.pt"),
         ]
     elif "lam=0.01" in name_lower or "lam0.01" in name_lower:
         candidates = [
@@ -100,8 +108,10 @@ def _resolve_checkpoint(model_name: str) -> Path | None:
     else:
         # Vanilla DARTS / lam=0
         candidates = [
-            Path("results/retrain_t10/model_weights.pt"),
+            Path("results/retrain_lam0.0/model_weights.pt"),
+            Path("results/search_lam0.0/checkpoint.pt"),
             Path("results/retrain_lam0/model_weights.pt"),
+            Path("results/retrain_t10/model_weights.pt"),
             Path("results/search_lam0/checkpoint.pt"),
         ]
 
@@ -147,7 +157,10 @@ def load_model(
             model = build_baseline("mobilenet_v2")
         else:
             # ThriftNAS / DARTS model: find genotype
-            genotype_path = Path("results/search_lam0/genotype.json")
+            genotype_path = Path("results/search_lam0.0/genotype.json")
+            if not genotype_path.exists():
+                genotype_path = Path("results/search_lam0/genotype.json")
+
             if ("0.01" in name_lower) and Path("results/search_lam0.01/genotype.json").exists():
                 genotype_path = Path("results/search_lam0.01/genotype.json")
             elif "0.1" in name_lower and Path("results/search_lam0.1/genotype.json").exists():
