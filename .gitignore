@@ -2,12 +2,12 @@
 data/*
 !data/demo_examples/
 
-# ----- model weights & checkpoints (too large for git) -----
-*.pt
-*.pth
-results/**/checkpoint.pt
-results/**/model_weights.pt
-results/**/alpha_ep*.pt
+# ----- model weights & checkpoints -----
+# Allowed in repo per project requirement
+!results/**/checkpoint.pt
+!results/**/model_weights.pt
+!results/**/alpha_ep*.pt
+
 
 # ----- Python artefacts -----
 __pycache__/
@@ -26,6 +26,7 @@ __pycache__/
 .DS_Store
 Thumbs.db
 
-# ----- uploaded test images (temp) -----
-test_animals.jpg
+# ----- local presentation app -----
+presentation_app.py
+.streamlit/
 
