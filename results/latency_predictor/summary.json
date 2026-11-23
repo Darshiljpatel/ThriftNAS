@@ -1,0 +1,11 @@
+{
+  "n_architectures": 9,
+  "old_mean_error_pct": 89.2,
+  "new_mean_error_pct": 14.9,
+  "calibrated_mean_error_pct_loo": 1.3,
+  "calibrated_max_error_pct_loo": 4.2,
+  "calibration_k": 1.175,
+  "old_spearman": 0.933,
+  "new_spearman": 1.0,
+  "skeleton_ms": 9.447
+}

@@ -7,6 +7,11 @@ data/*
 !results/**/checkpoint.pt
 !results/**/model_weights.pt
 !results/**/alpha_ep*.pt
+# Duplicate weights left at the old double-nested path; the real ones are one level up.
+results/baselines/mobilenet_v2/mobilenet_v2/*.pt
+results/baselines/resnet20/resnet20/*.pt
+# Backup of an aborted 1-epoch search restart; not a result.
+results/search_lam0.0.restart-bak/*.pt
 
 
 # ----- Python artefacts -----
