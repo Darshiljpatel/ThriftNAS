@@ -1,0 +1,4 @@
+Variant,Slot-6 op,Lambda,Search epochs,Seed,Final val acc (%),Final E(alpha),Skip count (both cells),Attention edges selected (normal),Normal cell ops
+ECA (default),eca_sep_conv_3x3,0.1,5,0,64.08,6.046,11,0/8,"max_pool_3x3, dil_conv_3x3, 6x skip_connect"
+SE,se_sep_conv_3x3,0.1,5,0,64.98,6.329,11,0/8,"max_pool_3x3, dil_conv_3x3, 6x skip_connect"
+No attention,sep_conv_3x3_dup,0.1,5,0,66.39,6.807,12,0/8,"max_pool_3x3, 7x skip_connect"

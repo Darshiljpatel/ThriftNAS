@@ -1,0 +1,164 @@
+{
+  "metadata": {
+    "C": 32,
+    "input_size": [
+      1,
+      32,
+      16,
+      16
+    ],
+    "threads": 1,
+    "warmup": 20,
+    "runs": 200,
+    "note": "Lookup-table latency is an approximation of true end-to-end latency. The prediction excludes the stem, global average pooling, and classifier layers (those costs are captured in end-to-end measurements).",
+    "attention_variant": "se_sep_conv_3x3"
+  },
+  "mac_max": 966656,
+  "entries": [
+    {
+      "op": "sep_conv_3x3",
+      "stride": 1,
+      "lat_median_ms": 0.2388499997323379,
+      "lat_std_ms": 0.06575222933310149,
+      "macs": 704512,
+      "c": 0.5008924895809193,
+      "flagged": true
+    },
+    {
+      "op": "sep_conv_5x5",
+      "stride": 1,
+      "lat_median_ms": 0.2212999997937004,
+      "lat_std_ms": 0.0448403113027322,
+      "macs": 966656,
+      "c": 0.6264571388359439,
+      "flagged": true
+    },
+    {
+      "op": "dil_conv_3x3",
+      "stride": 1,
+      "lat_median_ms": 0.09710000085760839,
+      "lat_std_ms": 0.009925764496071427,
+      "macs": 352256,
+      "c": 0.23768910289362433,
+      "flagged": true
+    },
+    {
+      "op": "max_pool_3x3",
+      "stride": 1,
+      "lat_median_ms": 0.18914999964181334,
+      "lat_std_ms": 0.01894804729875902,
+      "macs": 0,
+      "c": 0.10808571074478796,
+      "flagged": true
+    },
+    {
+      "op": "avg_pool_3x3",
+      "stride": 1,
+      "lat_median_ms": 0.05069999861007091,
+      "lat_std_ms": 0.0023042809805113146,
+      "macs": 0,
+      "c": 0.028971426882931292,
+      "flagged": false
+    },
+    {
+      "op": "skip_connect",
+      "stride": 1,
+      "lat_median_ms": 0.0008000006346264854,
+      "lat_std_ms": 5.23067606633538e-05,
+      "macs": 0,
+      "c": 0.000457143205676065,
+      "flagged": false
+    },
+    {
+      "op": "zero",
+      "stride": 1,
+      "lat_median_ms": 0.004999999873689376,
+      "lat_std_ms": 0.003303497187656761,
+      "macs": 0,
+      "c": 0.0028571426967748167,
+      "flagged": true
+    },
+    {
+      "op": "sep_conv_3x3",
+      "stride": 2,
+      "lat_median_ms": 0.18679999993764795,
+      "lat_std_ms": 0.03688182528822796,
+      "macs": 176128,
+      "c": 0.19784454872768292,
+      "flagged": true
+    },
+    {
+      "op": "sep_conv_5x5",
+      "stride": 2,
+      "lat_median_ms": 0.18374999945081072,
+      "lat_std_ms": 0.040125481607171054,
+      "macs": 241664,
+      "c": 0.2299999964451751,
+      "flagged": true
+    },
+    {
+      "op": "dil_conv_3x3",
+      "stride": 2,
+      "lat_median_ms": 0.13760000001639128,
+      "lat_std_ms": 0.04459295646483067,
+      "macs": 88064,
+      "c": 0.12417941646856123,
+      "flagged": true
+    },
+    {
+      "op": "max_pool_3x3",
+      "stride": 2,
+      "lat_median_ms": 0.0746000005165115,
+      "lat_std_ms": 0.014859032451229241,
+      "macs": 0,
+      "c": 0.04262857040791795,
+      "flagged": true
+    },
+    {
+      "op": "avg_pool_3x3",
+      "stride": 2,
+      "lat_median_ms": 0.021699999706470408,
+      "lat_std_ms": 0.007061342606042501,
+      "macs": 0,
+      "c": 0.012399999449521852,
+      "flagged": true
+    },
+    {
+      "op": "skip_connect",
+      "stride": 2,
+      "lat_median_ms": 0.09154999952443177,
+      "lat_std_ms": 0.04932874274522785,
+      "macs": 69632,
+      "c": 0.08833123298030598,
+      "flagged": true
+    },
+    {
+      "op": "zero",
+      "stride": 2,
+      "lat_median_ms": 0.014599998394260183,
+      "lat_std_ms": 0.00963998853998564,
+      "macs": 0,
+      "c": 0.008342855967775176,
+      "flagged": true
+    },
+    {
+      "op": "se_sep_conv_3x3",
+      "stride": 1,
+      "lat_median_ms": 0.8750000270083547,
+      "lat_std_ms": 0.21482760005467422,
+      "macs": 712832,
+      "c": 0.8687102754237288,
+      "flagged": true
+    },
+    {
+      "op": "se_sep_conv_3x3",
+      "stride": 2,
+      "lat_median_ms": 0.8197000133804977,
+      "lat_std_ms": 0.21620823682235774,
+      "macs": 178304,
+      "c": 0.560627217764312,
+      "flagged": true
+    }
+  ],
+  "lat_max": 0.8750000270083547
+}

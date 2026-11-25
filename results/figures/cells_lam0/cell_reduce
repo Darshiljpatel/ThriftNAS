@@ -1,0 +1,27 @@
+digraph "Reduction Cell" {
+	graph [fontname=Helvetica fontsize=12 label="Reduction Cell" rankdir=TB ranksep=0.8]
+	node [fontname=Helvetica fontsize=10 style=filled]
+	edge [fontname=Helvetica fontsize=9]
+	{
+		rank=same
+		in0 [label="c_{k-2}" fillcolor="#d5e8d4" shape=oval]
+		in1 [label="c_{k-1}" fillcolor="#d5e8d4" shape=oval]
+	}
+	nd0 [label="node 0" fillcolor="#dae8fc" shape=rect]
+	nd1 [label="node 1" fillcolor="#dae8fc" shape=rect]
+	nd2 [label="node 2" fillcolor="#dae8fc" shape=rect]
+	nd3 [label="node 3" fillcolor="#dae8fc" shape=rect]
+	out [label=concat fillcolor="#fff2cc" shape=oval]
+	in0 -> nd0 [label=sep_conv_5x5 color=steelblue]
+	in1 -> nd0 [label=sep_conv_5x5 color=steelblue]
+	in0 -> nd1 [label=max_pool_3x3 color=steelblue]
+	nd0 -> nd1 [label=sep_conv_3x3 color=steelblue]
+	in0 -> nd2 [label=max_pool_3x3 color=steelblue]
+	nd1 -> nd2 [label=sep_conv_3x3 color=steelblue]
+	nd1 -> nd3 [label=dil_conv_3x3 color=steelblue]
+	nd2 -> nd3 [label=sep_conv_5x5 color=steelblue]
+	nd0 -> out [arrowhead=none color=gray style=dashed]
+	nd1 -> out [arrowhead=none color=gray style=dashed]
+	nd2 -> out [arrowhead=none color=gray style=dashed]
+	nd3 -> out [arrowhead=none color=gray style=dashed]
+}

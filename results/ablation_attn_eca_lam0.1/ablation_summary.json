@@ -1,0 +1,28 @@
+{
+  "attention_variant": "eca",
+  "slot_op": "eca_sep_conv_3x3",
+  "lam": 0.1,
+  "epochs": 5,
+  "seed": 0,
+  "normal_ops": [
+    "max_pool_3x3",
+    "dil_conv_3x3",
+    "skip_connect",
+    "skip_connect",
+    "skip_connect",
+    "skip_connect",
+    "skip_connect",
+    "skip_connect"
+  ],
+  "reduce_ops": [
+    "max_pool_3x3",
+    "max_pool_3x3",
+    "max_pool_3x3",
+    "skip_connect",
+    "skip_connect",
+    "skip_connect",
+    "skip_connect",
+    "skip_connect"
+  ],
+  "attn_edges_in_normal": 0
+}
